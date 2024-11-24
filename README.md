@@ -13,7 +13,7 @@
 
 - Install auth package in laravel project (JWT, laravel/ui etc).
 - Install package:
-  ``` composer require shafiulnaeem/multi-auth-role-permission ```
+  ``` composer require Softvalley/multi-auth-role-permission ```
 - Run migrate command: ``` php artisan migrate ```
 - Add auth guards:
   ``` php artisan add:auth {your-guard-name} ```
@@ -21,14 +21,14 @@
 - After add auth guard, hit  ``` applicatoin_url/guards ``` get api for guard list.
   ` GET ` [http://localhost:8000/guards]( http://localhost:8000/guards ) or use bellow route
   ```
-    use Shafiulnaeem\MultiAuthRolePermission\Http\Controllers\RolePermissionController;
+    use Softvalley\MultiAuthRolePermission\Http\Controllers\RolePermissionController;
     use Symfony\Component\HttpFoundation\Response;
     
     // auth guards
     Route::get('/guards', function () {
         return sendResponse(
             'Data fetch successfully.',
-            \Shafiulnaeem\MultiAuthRolePermission\Models\AuthGuard::all(),
+            \Softvalley\MultiAuthRolePermission\Models\AuthGuard::all(),
             Response::HTTP_OK
         );
     })->name('guards');
@@ -131,7 +131,7 @@
 
 - For guard wise route permission list use bellow route. <br/>
    ```php
-     use Shafiulnaeem\MultiAuthRolePermission\Http\Controllers\RolePermissionController;
+     use Softvalley\MultiAuthRolePermission\Http\Controllers\RolePermissionController;
      Route::get('permission/module/{guard}', [RolePermissionController::class, 'module_permission'])->name('permission.route.list');
    ```
   ```json
@@ -174,7 +174,7 @@
 
 - Role CRUD route
   ```php
-  use Shafiulnaeem\MultiAuthRolePermission\Http\Controllers\RolePermissionController;
+  use Softvalley\MultiAuthRolePermission\Http\Controllers\RolePermissionController;
   Route::group(['prefix' => 'role', 'as' => 'role.'], function () {
     // use `guard` params for gurad wise role list
     // use `search` params for search role  
@@ -224,7 +224,7 @@
   ```
 - user permission list from bellow route <br />
   ```php
-   use Shafiulnaeem\MultiAuthRolePermission\Http\Controllers\RolePermissionController;
+   use Softvalley\MultiAuthRolePermission\Http\Controllers\RolePermissionController;
    Route::post('/user/permission/list', [RolePermissionController::class, 'get_user_permission_list'])->name('user.permission.list');
   ```
   ```json
@@ -237,7 +237,7 @@
 
 - Assaign user permission using bellow route
   ```php
-   use Shafiulnaeem\MultiAuthRolePermission\Http\Controllers\RolePermissionController;
+   use Softvalley\MultiAuthRolePermission\Http\Controllers\RolePermissionController;
    Route::post('/user/permission/add', [RolePermissionController::class, 'user_permission'])->name('user.permission.add');
   ```
   ```json
