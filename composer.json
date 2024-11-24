@@ -1,0 +1,46 @@
+{
+    "name": "softvalley/multi-auth-role-permission",
+    "description": "Multi auth role permission where user easily assign role permission",
+    "license": "MIT",
+    "keywords": [
+        "role permission",
+        "multi auth",
+        "role",
+        "permission",
+        "multi-auth-role-permission"
+    ],
+    "type": "package",
+    "autoload": {
+        "psr-4": {
+            "Softvalley\\MultiAuthRolePermission\\": "src/"
+        },
+        "files": [
+            "helper/helper.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Softvalley\\MultiAuthRolePermission\\Tests\\": "tests",
+            "Softvalley\\MultiAuthRolePermission\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-f": "vendor/bin/phpunit --filter"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Softvalley\\MultiAuthRolePermission\\PackageServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": ">=8.0",
+        "illuminate/support": "^10.26"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.12",
+        "phpunit/phpunit": "^10.3"
+    }
+}
